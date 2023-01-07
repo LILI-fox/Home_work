@@ -6,9 +6,13 @@ int[] array = GenerateArray(100, 999, 10);
 
 PrintArray(array);
 
-int[] resultArray = GetPositiveNumbers(array);
+int[] resultArray = GetEvenNumbers(array);
 
 PrintArray(resultArray);
+
+int result = GetCountEvenNumbers(resultArray);
+
+Console.WriteLine($"Количество четных чисел в массиве равно {result}.");
 
 int[] GenerateArray(int min, int max, int lenght)
 {
@@ -27,7 +31,7 @@ void PrintArray(int[] array)
     Console.WriteLine($"[{string.Join(", ", array)}]");
 }
 
-int[] GetPositiveNumbers(int[] array)
+int[] GetEvenNumbers(int[] array)
 {
     int[] newArray = new int[array.Length];
     for (int i = 0; i < array.Length; i++)
@@ -38,4 +42,17 @@ int[] GetPositiveNumbers(int[] array)
         }
     }
     return newArray;
+}
+
+int GetCountEvenNumbers(int[] resultArray)
+{
+    int count = 0;
+    for (int i = 0; i < resultArray.Length; i++)
+    {
+        if(array[i] % 2 == 0)
+        {
+        count = count + 1;
+        }
+    }
+    return count;
 }
